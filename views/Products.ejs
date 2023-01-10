@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="d-flex justify-content-between" >
+        <a href="/Products/add" class="btn btn-primary" > Add a Product </a>
+    </div>
+
+    <div class="d-flex justify-content-center my-4">
+   <h4>List of all the products will be displayed below.</h4>
+    </div>
+
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let i=0; i<products.length;i++){%>
+              <tr>
+                <td> <%= products[i].name%> </td>
+                <td> <%= products[i].description%> </td>
+                <td> <%= products[i].price%> </td>
+                <td> <a class="btn btn-info" href="products/edit/<%= products[i]._id %>">Edit</a> <a class="btn btn-danger" href="/products/delete/<%= products[i]._id %>">Delete</a>  </td>
+              </tr>
+            <%}%>
+        </tbody>
+    </table>
+
+</body>
+</html>
